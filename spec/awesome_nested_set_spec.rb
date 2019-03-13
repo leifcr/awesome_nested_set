@@ -4,6 +4,13 @@ describe "AwesomeNestedSet" do
   before(:all) do
     self.class.fixtures :categories, :departments, :notes, :things, :brokens, :users, :default_scoped_models
   end
+  describe "thing" do
+    it "should create a thing" do
+      Thing.destroy_all
+      t = Thing.new(body: "Hand")
+      expect(t.save).to eq(true)
+    end
+  end
 
   describe "defaults" do
     it "should have left_column_default" do
