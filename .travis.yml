@@ -7,6 +7,7 @@ env:
   - DB=sqlite3mem
   - DB=postgresql
   - DB=mysql
+  - DB=mariadb
 rvm:
   - 2.6.1
   - 2.3.1
