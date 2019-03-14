@@ -1,3 +1,9 @@
+mariadb:
+  adapter: <%= defined?(JRUBY_VERSION) ? "jdbcmysql" : "mysql2" %>
+  host: localhost
+  username: root
+  password:
+  database: awesome_nested_set_plugin_test
 sqlite3:
   adapter: <%= "jdbc" if defined? JRUBY_VERSION %>sqlite3
   database: awesome_nested_set.sqlite3.db
