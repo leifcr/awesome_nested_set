@@ -200,7 +200,7 @@ module CollectiveIdea #:nodoc:
           return unless has_depth_column?
 
           in_tenacious_transaction do
-            reload
+            reload_nested_set
             update_depth(level)
           end
         end
@@ -209,7 +209,7 @@ module CollectiveIdea #:nodoc:
           return unless has_depth_column?
 
           in_tenacious_transaction do
-            reload
+            reload_nested_set
             self_and_descendants.select(primary_column_name).lock(true)
             old_depth = self[depth_column_name] || 0
             new_depth = level
