@@ -1,5 +1,5 @@
-addons:
-  mariadb: '10.4'
+# addons:
+#   mariadb: '10.4'
 language: ruby
 script: bundle exec rspec spec
 sudo: false
@@ -9,7 +9,6 @@ env:
   - DB=sqlite3mem
   - DB=postgresql
   - DB=mysql
-  - DB=mariadb
 rvm:
   - 2.6.1
   - 2.3.1
@@ -19,6 +18,12 @@ gemfile:
   - gemfiles/rails_5.1.gemfile
   - gemfiles/rails_5.2.gemfile
 matrix:
+  include:
+    - rvm: 2.6.1
+      gemfile: gemfiles/rails_5.2.gemfile
+      env: DB=mariadb
+      addons:
+        mariadb: '10.4'
   exclude:
     - rvm: 2.3.1
       env: DB=mariadb
